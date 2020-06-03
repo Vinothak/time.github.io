@@ -1,51 +1,54 @@
 //console.log("bjvCJc");
 
-var seconds=0;
-var mins=90;
-var hrs=0;
-var count=0;
+var sec=0;
+var mins=0;
+var hour=0;
+var secondcount=0;
 
+start();
 function setdate(){
 
-  var dNow = new Date();
-  var hour= (dNow.getHours());
-  var minutes= (dNow.getMinutes());
-  var sec= (dNow.getSeconds());
+  dNow = new Date();
+  hour= (dNow.getHours());
+  mins= (dNow.getMinutes());
+  sec= (dNow.getSeconds());
 
   hour=hour*30;
-  minutes=minutes*6;
+  mins=mins*6;
+  secondcount=sec;
   sec=sec*6;
 
     document.querySelector('#second').style.transform
                       = `rotate(${sec}deg)`;
     document.querySelector('#mins').style.transform
-                      = `rotate(${minutes}deg)`;
+                      = `rotate(${mins}deg)`;
     document.querySelector('#hrs').style.transform
                       = `rotate(${hour}deg)`;
 }
 
 function setClockWithCurrentTime() {
 
-  seconds=seconds+6;
+  sec=sec+6;
 
   document.querySelector('#second').style.transform
-                         = `rotate(${seconds}deg)`;
+                         = `rotate(${sec}deg)`;
 //  console.log(current);
-if(count%60==0 && count!=0)
+if(secondcount%60==0 && secondcount!=0)
 {
   mins=mins+6;
   document.querySelector('#mins').style.transform
                          = `rotate(${mins}deg)`;
 }
 
-if(count%360==0 && count!=0)
+if(secondcount%360==0 && secondcount!=0)
 {
-  hrs=hrs+6;
+
+  hour=hour+6;
   document.querySelector('#hrs').style.transform
-                         = `rotate(${hrs}deg)`;
+                         = `rotate(${hour}deg)`;
 }
 
-count++;
+secondcount++;
 }
 
 function start(){
