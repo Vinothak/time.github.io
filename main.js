@@ -4,7 +4,28 @@ var seconds=0;
 var mins=90;
 var hrs=0;
 var count=0;
+
+function setdate(){
+
+  var dNow = new Date();
+  var hour= (dNow.getHours());
+  var minutes= (dNow.getMinutes());
+  var sec= (dNow.getSeconds());
+
+  hour=hour*30;
+  minutes=minutes*6;
+  sec=sec*6;
+
+    document.querySelector('#second').style.transform
+                      = `rotate(${sec}deg)`;
+    document.querySelector('#mins').style.transform
+                      = `rotate(${minutes}deg)`;
+    document.querySelector('#hrs').style.transform
+                      = `rotate(${hour}deg)`;
+}
+
 function setClockWithCurrentTime() {
+
   seconds=seconds+6;
 
   document.querySelector('#second').style.transform
@@ -28,5 +49,6 @@ count++;
 }
 
 function start(){
+  setdate();
 setInterval(setClockWithCurrentTime, 1000);
 }
